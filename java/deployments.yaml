@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-java
+  namespace: calculator-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: calculator-java
+    spec:
+      containers:
+        - name: calculator-java
+          image: calculator-java:latest
+          ports:
+          - containerPort: 8080
+  selector:
+    matchLabels:
+      app: calculator-java
+
+
