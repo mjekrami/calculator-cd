@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: calculator-application
-  namespace: argo
+  namespace: argocd
   finalizers:
     - resources-finalizers.argocd.argoproj.io
 spec:
@@ -14,5 +14,3 @@ spec:
     path: java
     repoURL: https://github.com/mjekrami/calculator-cd
     targetRevision: HEAD
-
-
