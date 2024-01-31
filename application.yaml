@@ -10,7 +10,10 @@ spec:
     namespace: calculator-app
     server: https://kubernetes.default.svc
   project: default
-  source:
-    path: java
+  sources:
+  - path: java
+    repoURL: https://github.com/mjekrami/calculator-cd
+    targetRevision: HEAD
+  - path: nginx
     repoURL: https://github.com/mjekrami/calculator-cd
     targetRevision: HEAD
