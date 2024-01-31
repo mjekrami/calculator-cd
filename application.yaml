@@ -10,10 +10,24 @@ spec:
     namespace: calculator-app
     server: https://kubernetes.default.svc
   project: default
-  sources:
-  - path: java
+  source:
+    path: java
     repoURL: https://github.com/mjekrami/calculator-cd
     targetRevision: HEAD
-  - path: nginx
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd
+  finalizers:
+    - resources-finalizers.argocd.argoproj.io
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: nginx
     repoURL: https://github.com/mjekrami/calculator-cd
     targetRevision: HEAD
